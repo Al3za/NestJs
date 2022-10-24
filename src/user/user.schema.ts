@@ -3,18 +3,14 @@ import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
 
 @Schema()
-export class ToDo {
+export class User {
   @Prop()
-  id: number;
+  Username: string;
   @Prop()
-  text: string;
-  @Prop()
-  timeStamp: Date;
-  @Prop()
-  author: string;
+  password: string;
 }
 
-export type TodoDocument = ToDo & Document;
+export type UserDocument = User & Document;
 // det gör att User types blir av samma typ som mongoose schema property
 
-export const todoSchema = SchemaFactory.createForClass(ToDo);
+export const UserSchema = SchemaFactory.createForClass(User);

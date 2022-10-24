@@ -1,6 +1,8 @@
+/* eslint-disable prettier/prettier */
 import {
   Body,
   Controller,
+  Delete,
   Get,
   HttpException,
   HttpStatus,
@@ -36,5 +38,9 @@ export class TodoController {
     }
     this.logger.debug(`Found todo ${JSON.stringify(todo)}`);
     return todo;
+  }
+
+  @Delete(':id') async removeOne(@Param('id') id: number): Promise<void> {
+    const erase = await this.todoService.CancelOne(id);
   }
 }
