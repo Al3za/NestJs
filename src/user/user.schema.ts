@@ -5,7 +5,9 @@ import { Document } from 'mongoose';
 @Schema()
 export class User {
   @Prop()
-  Username: string;
+  id: number;
+  @Prop()
+  username: string;
   @Prop()
   password: string;
 }
